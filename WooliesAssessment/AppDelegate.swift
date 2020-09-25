@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = BreedsConfigurator.breedsViewController()
+        self.window?.rootViewController = BreedsRouter.breedsViewController()
         
         return true
     }

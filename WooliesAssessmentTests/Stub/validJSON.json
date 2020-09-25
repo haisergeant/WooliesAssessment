@@ -1,0 +1,26 @@
+[
+  {
+    "breeds": [
+      {
+        "weight": {
+          "imperial": "65 - 115",
+          "metric": "29 - 52"
+        },
+        "height": {
+          "imperial": "24 - 28",
+          "metric": "61 - 71"
+        },
+        "id": 6,
+        "name": "Akita",
+        "bred_for": "Hunting bears",
+        "breed_group": "Working",
+        "life_span": "10 - 14 years",
+        "temperament": "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous"
+      }
+    ],
+    "id": "S1_8kx5Nm",
+    "url": "https://cdn2.thedogapi.com/images/S1_8kx5Nm_1280.jpg",
+    "width": 305,
+    "height": 300
+  },
+]

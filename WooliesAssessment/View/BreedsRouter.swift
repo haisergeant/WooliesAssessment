@@ -1,5 +1,5 @@
 //
-//  BreedsConfigurator.swift
+//  BreedsRouter.swift
 //
 //  Created by Hai Le Thanh.
 //  Copyright © 2020 Hai Le Thanh. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BreedsConfigurator {
+class BreedsRouter {
     class func breedsViewController() -> UIViewController {
         let controller: BreedsViewController = UIStoryboard(storyboard: .main).instantiateViewController()
         

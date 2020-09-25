@@ -26,7 +26,8 @@ class BreedsViewController: UIViewController {
         tableView.register(BreedTableViewCell.self)
     }
     
-    @IBAction func sortOrderChanged(_ sender: Any) {
+    @IBAction func sortOrderChanged(_ sender: UISegmentedControl) {
+        presenter?.applySort(sender.selectedSegmentIndex == 0 ? .ascending : .descending)
     }
 }
 

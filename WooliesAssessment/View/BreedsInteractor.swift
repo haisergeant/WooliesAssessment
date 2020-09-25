@@ -50,7 +50,7 @@ class BreedsInteractor: BreedsPresenterToInteractorProtocol {
             case .failure(let error):
                 self.presenter?.didFailFetchImage(for: breed, error: error)
             }
-        }
+        }        
     }
     
     func cancelRequestImage(for breed: Breed) {

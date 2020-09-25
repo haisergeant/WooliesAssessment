@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+enum SortType {
+    case ascending
+    case descending
+}
+
 protocol BreedsPresenterToViewProtocol: class {
     func displayData(_ viewModels: [BreedTableViewCellModel])
     func displayError(message: String)
@@ -16,6 +21,7 @@ protocol BreedsPresenterToViewProtocol: class {
 
 protocol BreedsViewToPresenterProtocol {
     func fetchData()
+    func applySort(_ type: SortType)
     func requestDataForCellIfNeeded(at index: Int)
     func stopRequestDataForCell(at index: Int)
 }
@@ -26,15 +32,45 @@ class BreedsPresenter {
     
     var breeds: [Breed] = []
     var viewModels: [BreedTableViewCellModel] = []
-    init(view: BreedsPresenterToViewProtocol, interactor: BreedsPresenterToInteractorProtocol) {
+    
+    private let sortType = Observable<SortType>(.ascending)
+    
+    init(view: BreedsPresenterToViewProtocol,
+         interactor: BreedsPresenterToInteractorProtocol) {
         self.view = view
         self.interactor = interactor
+        
+        sortType.valueChanged = { [weak self] value in
+            self?.applySortAndUpdateViewModel()
+        }
+    }
+    
+    private func applySortAndUpdateViewModel() {
+        breeds.sort { first, second -> Bool in
+            if case .ascending = sortType.value {
+                return first.lifeSpan < second.lifeSpan
+            } else {
+                return first.lifeSpan > second.lifeSpan
+            }
+        }
+        
+        viewModels = breeds.compactMap { breed in
+            BreedTableViewCellModel(imageState: Observable<ImageState>(!breed.url.isEmpty ? .loading : .none),
+                                    title: breed.name,
+                                    description: breed.lifeSpan)
+        }
+        
+        self.view?.displayData(self.viewModels)
     }
 }
 
 extension BreedsPresenter: BreedsViewToPresenterProtocol {
     func fetchData() {
         interactor.requestData()
+    }
+    
+    func applySort(_ type: SortType) {
+        sortType.value = type
     }
     
     func requestDataForCellIfNeeded(at index: Int) {
@@ -52,15 +88,13 @@ extension BreedsPresenter: BreedsViewToPresenterProtocol {
     
     func stopRequestDataForCell(at index: Int) {
         let rowItem = breeds[index]
+        clearDataForCell(at: index - 10)
+        clearDataForCell(at: index + 10)
         interactor.cancelRequestImage(for: rowItem)
     }
     
-    func clearDataForCell(at index: Int) {
-        guard index >= 0, index < viewModels.count else {
-            clearDataForCell(at: index - 10)
-            clearDataForCell(at: index + 10)
-            return            
-        }
+    private func clearDataForCell(at index: Int) {
+        guard index >= 0, index < viewModels.count else { return }
         
         let viewModel = viewModels[index]
         if case ImageState.loadedImage(_) = viewModel.imageState.value {
@@ -74,13 +108,7 @@ extension BreedsPresenter: BreedsInteractorToPresenterProtocol {
         self.breeds.removeAll()
         self.breeds.append(contentsOf: breeds)
         
-        viewModels = breeds.compactMap { breed in
-            BreedTableViewCellModel(imageState: Observable<ImageState>(!breed.url.isEmpty ? .loading : .none),
-                                    title: breed.name,
-                                    description: breed.lifeSpan)
-        }
-        
-        self.view?.displayData(self.viewModels)                
+        applySortAndUpdateViewModel()
     }
     
     func handleError(_ error: Error) {
