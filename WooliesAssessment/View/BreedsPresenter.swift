@@ -51,9 +51,13 @@ class BreedsPresenter {
             var right = second
             guard let firstLifeSpan = left.minMaxLifeSpan, let secondLifeSpan = right.minMaxLifeSpan else { return false }
             if case .ascending = sortType.value {
-                return firstLifeSpan.min < secondLifeSpan.min || (firstLifeSpan.min == secondLifeSpan.min && firstLifeSpan.max < secondLifeSpan.max)
+                return firstLifeSpan.max < secondLifeSpan.max ||
+                    (firstLifeSpan.max == secondLifeSpan.max &&
+                        firstLifeSpan.min < secondLifeSpan.min)
             } else {
-                return firstLifeSpan.min > secondLifeSpan.min || (firstLifeSpan.min == secondLifeSpan.min && firstLifeSpan.max > secondLifeSpan.max)
+                return firstLifeSpan.max > secondLifeSpan.max ||
+                    (firstLifeSpan.max == secondLifeSpan.max &&
+                        firstLifeSpan.min > secondLifeSpan.min)
             }
         }
         
@@ -93,8 +97,10 @@ extension BreedsPresenter: BreedsViewToPresenterProtocol {
     func stopRequestDataForCell(at index: Int) {
         guard index >= 0, index < breeds.count else { return }
         let rowItem = breeds[index]
-        clearDataForCell(at: index - 10)
-        clearDataForCell(at: index + 10)
+        clearDataForCell(at: index - 20)
+        clearDataForCell(at: index + 20)
+        
+        // clearDataForCell(at: index)
         interactor.cancelRequestImage(for: rowItem)
     }
     

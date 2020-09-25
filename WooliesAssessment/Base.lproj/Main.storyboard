@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uG3-Fl-np2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,6 +45,21 @@
                                     <outlet property="delegate" destination="uG3-Fl-np2" id="0JY-iQ-kDb"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fK5-46-p40">
+                                <rect key="frame" x="87" y="389" width="240" height="128"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Jij-yL-2X1">
+                                        <rect key="frame" x="110" y="54" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="8yE-IR-NZW"/>
+                                    <constraint firstAttribute="height" constant="128" id="B0S-G5-Ng5"/>
+                                    <constraint firstItem="Jij-yL-2X1" firstAttribute="centerY" secondItem="fK5-46-p40" secondAttribute="centerY" id="O2k-6M-HPY"/>
+                                    <constraint firstItem="Jij-yL-2X1" firstAttribute="centerX" secondItem="fK5-46-p40" secondAttribute="centerX" id="unv-p8-9q2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -51,13 +67,17 @@
                             <constraint firstItem="acP-jw-Km1" firstAttribute="bottom" secondItem="upI-Pv-4FN" secondAttribute="bottom" constant="34" id="B8T-wl-rYW"/>
                             <constraint firstItem="mDq-qe-WP8" firstAttribute="top" secondItem="upI-Pv-4FN" secondAttribute="top" id="ZJ5-wL-glD"/>
                             <constraint firstItem="acP-jw-Km1" firstAttribute="leading" secondItem="upI-Pv-4FN" secondAttribute="leading" id="h8K-Ug-AhM"/>
+                            <constraint firstItem="fK5-46-p40" firstAttribute="centerY" secondItem="upI-Pv-4FN" secondAttribute="centerY" id="t6x-Rw-7jE"/>
                             <constraint firstItem="upI-Pv-4FN" firstAttribute="trailing" secondItem="mDq-qe-WP8" secondAttribute="trailing" id="wme-Ua-H22"/>
                             <constraint firstItem="acP-jw-Km1" firstAttribute="top" secondItem="mDq-qe-WP8" secondAttribute="bottom" constant="8" id="wms-ex-dN7"/>
                             <constraint firstItem="mDq-qe-WP8" firstAttribute="leading" secondItem="upI-Pv-4FN" secondAttribute="leading" id="xcz-Qd-fB2"/>
+                            <constraint firstItem="fK5-46-p40" firstAttribute="centerX" secondItem="upI-Pv-4FN" secondAttribute="centerX" id="zhD-ci-qYs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="upI-Pv-4FN"/>
                     </view>
                     <connections>
+                        <outlet property="loadingIndicator" destination="Jij-yL-2X1" id="eBV-T1-qYd"/>
+                        <outlet property="loadingView" destination="fK5-46-p40" id="gat-VE-k2a"/>
                         <outlet property="tableView" destination="acP-jw-Km1" id="vUR-sb-SCV"/>
                     </connections>
                 </viewController>

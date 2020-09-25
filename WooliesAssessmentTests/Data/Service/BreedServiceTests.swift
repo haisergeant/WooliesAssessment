@@ -60,16 +60,17 @@ class BreedServiceTests: XCTestCase {
     
     func testRequestImageSuccess() {
         let bundle = Bundle(for: BreedServiceTests.self)
+        let imageData = UIImage(named: "tick", in: bundle, compatibleWith: nil)?.pngData()
         let imageJPGData = UIImage(named: "tick", in: bundle, compatibleWith: nil)?.jpegData(compressionQuality: 1)
         
-        session.data = imageJPGData
+        session.data = imageData
         let service = BreedService(queueManager: QueueManager.shared, session: session)
         
         let expectation = self.expectation(description: "Receive valid JSON")
         service.requestImage(for: Breed(id: "1", url: "tick.png", breeds: [])) { result in
             switch result {
             case .success(let image):
-                XCTAssertTrue(image.jpegData(compressionQuality: 1) == imageJPGData)
+                XCTAssertTrue(image.size == UIImage(data: imageJPGData!)!.size)
                 expectation.fulfill()
             case .failure:
                 XCTFail("Should receive valid image")
