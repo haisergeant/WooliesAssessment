@@ -35,7 +35,7 @@ class BreedsInteractor: BreedsPresenterToInteractorProtocol {
         service.requestBreed { [weak self] result in
             switch result {
             case .success(let breeds):
-                self?.presenter?.didFetchData(breeds)
+                self?.presenter?.didFetchData(breeds.filter { !$0.breeds.isEmpty })
             case .failure(let error):
                 self?.presenter?.handleError(error)
             }

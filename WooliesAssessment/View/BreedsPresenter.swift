@@ -47,10 +47,13 @@ class BreedsPresenter {
     
     private func applySortAndUpdateViewModel() {
         breeds.sort { first, second -> Bool in
+            var left = first
+            var right = second
+            guard let firstLifeSpan = left.minMaxLifeSpan, let secondLifeSpan = right.minMaxLifeSpan else { return false }
             if case .ascending = sortType.value {
-                return first.lifeSpan < second.lifeSpan
+                return firstLifeSpan.min < secondLifeSpan.min || (firstLifeSpan.min == secondLifeSpan.min && firstLifeSpan.max < secondLifeSpan.max)
             } else {
-                return first.lifeSpan > second.lifeSpan
+                return firstLifeSpan.min > secondLifeSpan.min || (firstLifeSpan.min == secondLifeSpan.min && firstLifeSpan.max > secondLifeSpan.max)
             }
         }
         
@@ -74,8 +77,9 @@ extension BreedsPresenter: BreedsViewToPresenterProtocol {
     }
     
     func requestDataForCellIfNeeded(at index: Int) {
-        let viewModel = viewModels[index]
+        guard index >= 0, index < breeds.count else { return }
         let rowItem = breeds[index]
+        let viewModel = viewModels[index]        
         
         if viewModel.imageState.value == .fail {
             viewModel.imageState.value = .loading
@@ -87,6 +91,7 @@ extension BreedsPresenter: BreedsViewToPresenterProtocol {
     }
     
     func stopRequestDataForCell(at index: Int) {
+        guard index >= 0, index < breeds.count else { return }
         let rowItem = breeds[index]
         clearDataForCell(at: index - 10)
         clearDataForCell(at: index + 10)

@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E804CCE9251D7BD4008DB616 /* BreedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E804CCE8251D7BD4008DB616 /* BreedServiceTests.swift */; };
-		E804CCEB251D880F008DB616 /* BreedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E804CCEA251D880F008DB616 /* BreedInteractor.swift */; };
+		E804CCEB251D880F008DB616 /* BreedsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E804CCEA251D880F008DB616 /* BreedsInteractorTests.swift */; };
+		E804CCED251D99AB008DB616 /* BreedsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E804CCEC251D99AB008DB616 /* BreedsPresenterTests.swift */; };
 		E87A10EB251B676B008DF9A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87A10EA251B676B008DF9A1 /* AppDelegate.swift */; };
 		E87A10F2251B676B008DF9A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E87A10F0251B676B008DF9A1 /* Main.storyboard */; };
 		E87A10F4251B676D008DF9A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87A10F3251B676D008DF9A1 /* Assets.xcassets */; };
@@ -57,7 +58,8 @@
 
 /* Begin PBXFileReference section */
 		E804CCE8251D7BD4008DB616 /* BreedServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedServiceTests.swift; sourceTree = "<group>"; };
-		E804CCEA251D880F008DB616 /* BreedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedInteractor.swift; sourceTree = "<group>"; };
+		E804CCEA251D880F008DB616 /* BreedsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsInteractorTests.swift; sourceTree = "<group>"; };
+		E804CCEC251D99AB008DB616 /* BreedsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsPresenterTests.swift; sourceTree = "<group>"; };
 		E87A10E7251B676B008DF9A1 /* WooliesAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WooliesAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87A10EA251B676B008DF9A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E87A10F1251B676B008DF9A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -247,7 +249,8 @@
 		E87A1147251CDFEC008DF9A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E804CCEA251D880F008DB616 /* BreedInteractor.swift */,
+				E804CCEA251D880F008DB616 /* BreedsInteractorTests.swift */,
+				E804CCEC251D99AB008DB616 /* BreedsPresenterTests.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -427,8 +430,9 @@
 				E87A1154251CDFEC008DF9A1 /* MockURLSession.swift in Sources */,
 				E87A1159251CDFEC008DF9A1 /* JSONDataRequestOperationTests.swift in Sources */,
 				E87A115A251CDFEC008DF9A1 /* QueueManagerTests.swift in Sources */,
+				E804CCED251D99AB008DB616 /* BreedsPresenterTests.swift in Sources */,
 				E87A1158251CDFEC008DF9A1 /* CacheImageOperationTests.swift in Sources */,
-				E804CCEB251D880F008DB616 /* BreedInteractor.swift in Sources */,
+				E804CCEB251D880F008DB616 /* BreedsInteractorTests.swift in Sources */,
 				E804CCE9251D7BD4008DB616 /* BreedServiceTests.swift in Sources */,
 				E87A1153251CDFEC008DF9A1 /* MockFileManager.swift in Sources */,
 			);

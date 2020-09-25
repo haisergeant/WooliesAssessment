@@ -20,6 +20,19 @@ struct Breed: Decodable {
     var lifeSpan: String {
         breeds.first?.lifeSpan ?? ""
     }
+    
+    lazy var minMaxLifeSpan: (min: Int, max: Int)? = {
+        guard let first = self.breeds.first else { return nil }
+        let lifeSpan = first.lifeSpan
+        guard let range = lifeSpan.range(of: "years") else { return nil }
+        
+        let temp = lifeSpan[..<range.lowerBound]
+        let components = temp.components(separatedBy: "-")
+        guard components.count == 2,
+            let minLifeSpan = Int(components[0].trimmingCharacters(in: .whitespaces)),
+            let maxLifeSpan = Int(components[1].trimmingCharacters(in: .whitespaces)) else { return nil }
+        return (minLifeSpan, maxLifeSpan)
+    }()
 }
 
 

@@ -1,52 +1,52 @@
 [
   {
-    breeds: [
+    "breeds": [
       {
-        weight: {
-          imperial: "65 - 115",
-          metric: "29 - 52"
+        "weight": {
+          "imperial": "65 - 115",
+          "metric": "29 - 52"
         },
-        height: {
-          imperial: "24 - 28",
-          metric: "61 - 71"
+        "height": {
+          "imperial": "24 - 28",
+          "metric": "61 - 71"
         },
-        id: 6,
-        name: "Akita",
-        bred_for: "Hunting bears",
-        breed_group: "Working",
-        life_span: "10 - 14 years",
-        temperament: "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous"
+        "id": 6,
+        "name": "Akita",
+        "bred_for": "Hunting bears",
+        "breed_group": "Working",
+        "life_span": "10 - 14 years",
+        "temperament": "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous"
       }
     ],
-    id: "S1_8kx5Nm",
-    url: "https://cdn2.thedogapi.com/images/S1_8kx5Nm_1280.jpg",
-    width: 305,
-    height: 300
+    "id": "S1_8kx5Nm",
+    "url": "https://cdn2.thedogapi.com/images/S1_8kx5Nm_1280.jpg",
+    "width": 305,
+    "height": 300
   },
   {
-    breeds: [
+    "breeds": [
       {
-        weight: {
-          imperial: "30 - 150",
-          metric: "14 - 68"
+        "weight": {
+          "imperial": "30 - 150",
+          "metric": "14 - 68"
         },
-        height: {
-          imperial: "14 - 17",
-          metric: "36 - 43"
+        "height": {
+          "imperial": "14 - 17",
+          "metric": "36 - 43"
         },
-        id: 11,
-        name: "American Bully",
-        country_code: "US",
-        bred_for: "Family companion dog",
-        breed_group: "",
-        life_span: "8 – 15 years",
-        temperament: "Strong Willed, Stubborn, Friendly, Clownish, Affectionate, Loyal, Obedient, Intelligent, Courageous"
+        "id": 11,
+        "name": "American Bully",
+        "country_code": "US",
+        "bred_for": "Family companion dog",
+        "breed_group": "",
+        "life_span": "8 – 15 years",
+        "temperament": "Strong Willed, Stubborn, Friendly, Clownish, Affectionate, Loyal, Obedient, Intelligent, Courageous"
       }
     ],
-    id: "SkFt1gc47",
-    url: "https://cdn2.thedogapi.com/images/SkFt1gc47_1280.jpg",
-    width: 800,
-    height: 600
+    "id": "SkFt1gc47",
+    "url": "https://cdn2.thedogapi.com/images/SkFt1gc47_1280.jpg",
+    "width": 800,
+    "height": 600
   },
   
 ]
